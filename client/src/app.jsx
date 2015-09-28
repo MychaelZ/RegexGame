@@ -42,7 +42,6 @@ var App = React.createClass({
       username: UserStore.getUser().username || cookie.load('cookieName'),
       user_id: UserStore.getUser().user_id
     });
-    // console.log(this.state);
   },
 
   componentWillMount: function(){

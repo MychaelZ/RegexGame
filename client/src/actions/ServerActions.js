@@ -12,7 +12,6 @@ var ServerActions = {
   },
 
   solutionsLoaded: function (solutions) {
-    //console.log(solutions, ' ServerActions');
     Dispatcher.dispatch({
       type: ActionTypes.SOLUTIONS_LOADED,
       solutions: solutions

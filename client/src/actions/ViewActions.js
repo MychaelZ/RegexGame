@@ -28,7 +28,6 @@ var ViewActions = {
   },
 
   postNewSolution: function(qId, uId, solutionStr, username){
-    // console.log(qId, uId, solutionStr);
       Dispatcher.dispatch({
         type: ActionTypes.POST_NEW_SOLUTION
       });
@@ -36,7 +35,6 @@ var ViewActions = {
   },
 
   voteForSolution: function (solutionId, username) {
-    // console.log("Voting for ", solutionId);
     //ADD_VOTE_TO_SOLUTION
     Dispatcher.dispatch({
       type: ActionTypes.ADD_VOTE_TO_SOLUTION
@@ -57,7 +55,6 @@ var ViewActions = {
   },
 
   getAllUsers: function(){
-    // console.log('in view actions: getting all users');
     Dispatcher.dispatch({
       type: ActionTypes.LOAD_USERS
     });

@@ -18,8 +18,6 @@ var LeaderboardView = React.createClass({
 
   getUsers: function(){
     this.setState({users: UserStore.getUsers()});
-    // console.log('users:', this.state.users);
-    // console.log('solutions:', this.state.solutions);
     this.populateUserSolutions();
   },
 
@@ -30,11 +28,8 @@ var LeaderboardView = React.createClass({
       userSolutions['username'] = this.state.users[i].username;
       userSolutions['totalVotes'] = 0;
       userSolutions['totalAnswers'] = 0;
-      //console.log(this.state.users[i]);
       for(var j = 0; j < this.state.solutions.length; j++){
-        //console.log(this.state.solutions[i]);
         if(this.state.solutions[j].userId === this.state.users[i]._id ){
-          //console.log('match');
           userSolutions['totalAnswers'] += 1;
           userSolutions['totalVotes'] += this.state.solutions[j].votes;
         }
@@ -42,7 +37,6 @@ var LeaderboardView = React.createClass({
       userSolutionsArr.push(userSolutions);
     }
     this.setState({usersolutions: userSolutionsArr});
-    //console.log(this.state.usersolutions);
   },
 
   getSolutions: function(){

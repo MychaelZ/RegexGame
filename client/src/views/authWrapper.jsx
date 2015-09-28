@@ -11,7 +11,6 @@ module.exports = function(Component) {
 
     statics: {
       willTransitionTo: function(transition){
-        console.log(UserStore.getState().loggedIn);
         if(!UserStore.getState().loggedIn){
           transition.redirect('/login', {}, {'nextPath' : transition.path});
         }
@@ -26,7 +25,6 @@ module.exports = function(Component) {
       UserStore.addListener(this.onChange);
     },
     render: function(){
-      console.log(UserStore.getState().loggedIn);
       return <Component {...this.props}/>
     }
   });

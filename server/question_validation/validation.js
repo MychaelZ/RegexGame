@@ -23,12 +23,3 @@ var validate = function(regexString, truthy, falsy) {
 };
 
 module.exports = validate;
-
-// var truthy = ['Apple', 'Jan', 'hamburger', 'David', 'Sophia', 'example'];
-
-// var falsy = ['Aaron', 'Tim', 'Ingi', 'Canvas', 'PC', 'hackreactor'];
-
-// var regexString = '^[^a]*[a]{1}[^a]*$';
-
-
-// debug(validate(regexString, truthy, falsy, 'i'));

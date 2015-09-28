@@ -26,10 +26,10 @@ var SolutionView = React.createClass({
   },
 
   componentWillUnmount: function(){
-    // console.log("unmounted");
     SolutionStore.removeChangeListener(this.getSolutions);
   },
 
+<<<<<<< HEAD
   vote: function(solution, i){
     
     //TODO: Implement voting
@@ -37,6 +37,11 @@ var SolutionView = React.createClass({
     var votedObj = this.state.voted;
     votedObj[i] = true;
     this.setState({voted: votedObj});
+=======
+  vote: function(solution){
+    ViewActions.voteForSolution(solution);
+    this.setState({voted: true});
+>>>>>>> remove console logs
   },
 
   render: function(){

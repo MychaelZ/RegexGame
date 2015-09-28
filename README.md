@@ -22,19 +22,3 @@ to regular expressions.
 ## How
   [Regex Game] allows users to focus on learning regex through gamification. Users play through
 an ever expanding set of levels to gain regex mastery, accruing points and ranks along the way.
-
-## Words
-  "[Regex Game] gives users realistic regex use cases while tracking their progress, enabling
-a greater learning while ignoring the complexities of modern software projects."
-
-  -- Todd Glass, CIO
-## Where
-  [link](url)
-
-## Student
-  "After learning regular expressions with [Regex Game], I write much more elogant and efficient
-code"
-
-  -- Ricky Mort
-## Get Started
- Visit us at [link](link)  

@@ -78,7 +78,6 @@ UserStore.dispatchToken = Dispatcher.register(function (action) {
   }
 
   if (action.type === 'USERS_LOADED') {
-    //console.log("loaded users:", action.users);
     UserStore.setUsers(action.users);
     UserStore.emitUsersLoad();
   }

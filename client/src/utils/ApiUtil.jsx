@@ -10,9 +10,7 @@ var ApiUtils = {
         data.sort(function(a, b){
           return a.qNumber - b.qNumber;
         });
-        // console.log(data);
         ServerActions.questionsLoaded(data);
-        //this.setState({questions: data});
       }.bind(this),
       error: function(xhr, status, err){
         console.error(xhr, status, err.message);
@@ -56,7 +54,6 @@ var ApiUtils = {
         console.log(xhr, status, err.message);
       }
     })
-    // console.log('get user profile');
   },
 
   getAllUsers: function(){
@@ -79,10 +76,8 @@ var ApiUtils = {
   
   loadSolutions: function (qId) {
     //TODO: Actual request to server
-    // console.log("Loading solutions for question ID: ", qId);
 
     var populateSolutions = function(solutions){
-      // console.log('Got from server: ', solutions);
       ServerActions.solutionsLoaded(solutions);
     };
 
@@ -137,8 +132,6 @@ var ApiUtils = {
   },
 
   postNewSolution: function(qId, uId, solutionStr, username){
-    console.log(qId, uId, solutionStr, username);
-
     var postObj = {
       content: solutionStr,
       userId: uId,
