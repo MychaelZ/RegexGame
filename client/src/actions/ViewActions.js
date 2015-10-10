@@ -1,7 +1,6 @@
 var Dispatcher = require('../Dispatcher');
 var ActionTypes = require('../Constants').ActionTypes;
 var ApiUtils = require('../utils/ApiUtil.jsx');
-var Auth = require('../utils/auth.jsx');
 
 var ViewActions = {
   loadQuestions: function () {
@@ -20,18 +19,18 @@ var ViewActions = {
 
   loadAllSolutions: function () {
     ApiUtils.loadAllSolutions(function (allSolutions) {
-        Dispatcher.dispatch({
-          type: ActionTypes.ALL_SOLUTIONS_LOADED,
-          solutions: allSolutions
-        });
+      Dispatcher.dispatch({
+        type: ActionTypes.ALL_SOLUTIONS_LOADED,
+        solutions: allSolutions
+      });
     });
   },
 
-  postNewSolution: function(qId, uId, solutionStr, username){
-      Dispatcher.dispatch({
-        type: ActionTypes.POST_NEW_SOLUTION
-      });
-      ApiUtils.postNewSolution(qId, uId, solutionStr, username);
+  postNewSolution: function (qId, uId, solutionStr, username) {
+    Dispatcher.dispatch({
+      type: ActionTypes.POST_NEW_SOLUTION
+    });
+    ApiUtils.postNewSolution(qId, uId, solutionStr, username);
   },
 
   voteForSolution: function (solutionId, username) {
@@ -54,7 +53,7 @@ var ViewActions = {
     });
   },
 
-  getAllUsers: function(){
+  getAllUsers: function () {
     Dispatcher.dispatch({
       type: ActionTypes.LOAD_USERS
     });

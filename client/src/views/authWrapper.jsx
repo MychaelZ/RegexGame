@@ -3,15 +3,15 @@ var Auth = require('../utils/auth.jsx');
 var ViewActions = require('../actions/ViewActions');
 var UserStore = require('../stores/UserStore');
 
-module.exports = function(Component) {
+module.exports = function (Component) {
   return React.createClass({
     getInitialState: function () {
       return UserStore.getState();
     },
 
     statics: {
-      willTransitionTo: function(transition){
-        if(!UserStore.getState().loggedIn){
+      willTransitionTo: function (transition) {
+        if(!UserStore.getState().loggedIn) {
           transition.redirect('/login', {}, {'nextPath' : transition.path});
         }
       }
@@ -24,7 +24,7 @@ module.exports = function(Component) {
     componentDidMount: function () {
       UserStore.addListener(this.onChange);
     },
-    render: function(){
+    render: function () {
       return <Component {...this.props}/>
     }
   });

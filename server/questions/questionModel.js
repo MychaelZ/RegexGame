@@ -11,7 +11,6 @@ var QuestionSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Solution'
   }]
-  // examples?
 });
 
 var Question = mongoose.model('Question', QuestionSchema);
@@ -21,13 +20,12 @@ questions.forEach(function(element) {
   var newQ = new Question(element);
   newQ.save(function(err, data) {
     if (err) {
-      console.log("Adding questions error: ", err);
+      throw err;
     } else {
-      console.log("Adding questions success: ", data);
+      console.log('Adding questions success: ', data);
     }
   });
 });
-
 
 module.exports = Question;
 

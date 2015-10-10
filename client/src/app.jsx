@@ -27,7 +27,7 @@ var App = React.createClass({
 
   mixins: [Router.Navigation, Router.State],
 
-  getInitialState: function(){
+  getInitialState: function () {
     return {
       questions: [],
       //username: UserStore.getUser().username,
@@ -44,7 +44,7 @@ var App = React.createClass({
     });
   },
 
-  componentWillMount: function(){
+  componentWillMount: function () {
     if (cookie.load('cookieName') != null) {
       ViewActions.login(cookie.load('cookieName'));
     }
@@ -53,7 +53,7 @@ var App = React.createClass({
     //ViewActions.loadAnonProfile();
   },
 
-  componentDidMount: function(){
+  componentDidMount: function () {
     UserStore.addListener(this.onChange);
     QuestionStore.addListener(this.onChange);
     ViewActions.loadQuestions();
@@ -74,7 +74,7 @@ var App = React.createClass({
     this.transitionTo('default');
   },
 
-  //githubHandler: function() {
+  //githubHandler: function () {
   //  ApiUtils.login(username, function (userData) {
   //    Dispatcher.dispatch({
   //      type: ActionTypes.USER_AUTHENTICATION,
@@ -86,12 +86,12 @@ var App = React.createClass({
   //  });
   //},
 
-  logOut: function() {
+  logOut: function () {
     cookie.remove('cookieName');
     this.transitionTo('/');
   },
 
-  render: function() {
+  render: function () {
     return (
       <div className="container">
         <h2 className="title" onClick={this.goToHome}>Regex Game</h2>
@@ -117,7 +117,7 @@ var routes = (
   </Route>
 );
 
-Router.run(routes, function(Root){
+Router.run(routes, function (Root) {
   React.render(<Root />, document.getElementById('reactView'))
 });
 

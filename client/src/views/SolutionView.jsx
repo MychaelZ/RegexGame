@@ -8,45 +8,39 @@ var ViewActions = require('./../actions/ViewActions');
 
 var SolutionView = React.createClass({
 
-  getInitialState: function(){
+  getInitialState: function () {
     return {
       solutions: SolutionStore.getSolutions(),
       voted: {}
     };
   },
 
-  getSolutions: function(){
+  getSolutions: function () {
     this.setState({solutions: SolutionStore.getSolutions()});
   },
 
-  componentDidMount: function(){
+  componentDidMount: function () {
     SolutionStore.addListener(this.getSolutions);
     this.getSolutions();
     console.log(SolutionStore.getSolutions());
   },
 
-  componentWillUnmount: function(){
+  componentWillUnmount: function () {
     SolutionStore.removeChangeListener(this.getSolutions);
   },
 
-<<<<<<< HEAD
-  vote: function(solution, i){
+  vote: function (solution, i) {
     
     //TODO: Implement voting
     ViewActions.voteForSolution(solution, UserStore.getUser().username);
     var votedObj = this.state.voted;
     votedObj[i] = true;
     this.setState({voted: votedObj});
-=======
-  vote: function(solution){
-    ViewActions.voteForSolution(solution);
-    this.setState({voted: true});
->>>>>>> remove console logs
   },
 
-  render: function(){
+  render: function () {
     var context = this;
-    var solutions = this.state.solutions.map(function(solution, i) {
+    var solutions = this.state.solutions.map(function (solution, i) {
       return (
         <tr key={i}>
           <td className="solution-description">

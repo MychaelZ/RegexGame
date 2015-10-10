@@ -14,7 +14,7 @@ var LoginView = React.createClass({
     router: React.PropTypes.func.isRequired
   },
 
-  getInitialState: function(){
+  getInitialState: function () {
     return UserStore.getUser();
   },
 
@@ -30,7 +30,7 @@ var LoginView = React.createClass({
     UserStore.removeChangeListener(this.onChange);
   },
 
-  handleSubmit: function(e){
+  handleSubmit: function (e) {
     e.preventDefault();
     var router = this.context.router;
     var nextPath = router.getCurrentQuery().nextPath;
@@ -40,7 +40,7 @@ var LoginView = React.createClass({
     ViewActions.login(user);
     this.transitionTo('default');
   },
-  render: function(){
+  render: function () {
     return(
       <form className="loginForm" onSubmit={this.handleSubmit}>
         <input ref="username" type="text" placeholder="Username" ref="username" />

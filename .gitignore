@@ -27,5 +27,6 @@ build/Release
 node_modules
 .idea
 .DS_Store
+.eslintrc
 build
 auth.js

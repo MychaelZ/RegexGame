@@ -1,5 +1,5 @@
 {
-  "name": "familiar-protein",
+  "name": "RegexGame",
   "version": "1.0.0",
   "description": "",
   "main": "server/server.js",
@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "chai": "^3.2.0",
+    "eslint-plugin-react": "^3.5.1",
     "jsx-loader": "^0.13.2",
     "mocha": "^2.2.5",
     "supertest": "^1.0.1"

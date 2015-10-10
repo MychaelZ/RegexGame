@@ -54,11 +54,10 @@ var getQuestion = function(req, res, next) {
 // run tests on submitted regular expression
 var runTests = function(req, res, next) {
   var regexString = req.body.regexString;
-
   var result = questionValidation(regexString, req.questionData.truthy, req.questionData.falsy);
 
   res.status(201);
-  res.send({result: result})
+  res.send({result: result});
 };
 
 module.exports = {

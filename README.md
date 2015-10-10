@@ -1,6 +1,4 @@
-# Familiar Protein
-
-## [Regex Game]
+# Regex Game
 
 ### Gamified, online tool for learning regex.
 

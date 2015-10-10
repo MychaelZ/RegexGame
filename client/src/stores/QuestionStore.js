@@ -6,7 +6,7 @@ var Dispatcher = require('../Dispatcher');
 var questions = [];
 var CHANGE_EVENT = 'change';
 
-var QuestionStore = assign({}, EventEmitter.prototype, { // assign === _.extend
+var QuestionStore = assign({}, EventEmitter.prototype, {
   emitChange: function () {
     this.emit(CHANGE_EVENT);
   },

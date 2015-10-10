@@ -4,10 +4,10 @@ var requireAuth = require('./authWrapper.jsx');
 var Router = require('react-router');
 var Link = Router.Link;
 var UserStore = require('../stores/UserStore');
-//requireAuth(
+
 var OverView = React.createClass({
-  render: function() {
-    var questions = this.props.questions.map(function(question) {
+  render: function () {
+    var questions = this.props.questions.map(function (question) {
       return (
         <tr key={question.qNumber} className="question">
           <td><b>{question.title}</b></td>
@@ -33,6 +33,5 @@ var OverView = React.createClass({
     );
   }
 });
-//)
 
 module.exports = OverView;

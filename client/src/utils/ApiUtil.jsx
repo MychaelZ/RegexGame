@@ -6,13 +6,13 @@ var ApiUtils = {
       url: window.location.origin + '/questions',
       method: 'GET',
       dataType: 'json',
-      success: function(data){
-        data.sort(function(a, b){
+      success: function (data) {
+        data.sort(function (a, b) {
           return a.qNumber - b.qNumber;
         });
         ServerActions.questionsLoaded(data);
       }.bind(this),
-      error: function(xhr, status, err){
+      error: function (xhr, status, err) {
         console.error(xhr, status, err.message);
       }
     })
@@ -56,9 +56,9 @@ var ApiUtils = {
     })
   },
 
-  getAllUsers: function(){
+  getAllUsers: function () {
     
-    var loadUsers = function(users){
+    var loadUsers = function (users) {
       ServerActions.usersLoaded(users);
     };
 
@@ -77,7 +77,7 @@ var ApiUtils = {
   loadSolutions: function (qId) {
     //TODO: Actual request to server
 
-    var populateSolutions = function(solutions){
+    var populateSolutions = function (solutions) {
       ServerActions.solutionsLoaded(solutions);
     };
 
@@ -104,7 +104,7 @@ var ApiUtils = {
     });
   },
 
-  incrementSolutionVote: function (solution, username){
+  incrementSolutionVote: function (solution, username) {
 
     solution['votes'] += 1;
     solution['voters'].push(username);
@@ -131,7 +131,7 @@ var ApiUtils = {
     })
   },
 
-  postNewSolution: function(qId, uId, solutionStr, username){
+  postNewSolution: function (qId, uId, solutionStr, username) {
     var postObj = {
       content: solutionStr,
       userId: uId,

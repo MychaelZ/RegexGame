@@ -15,8 +15,7 @@ module.exports = {
     USER_LOGIN: null,
     ALL_SOLUTIONS_LOADED: null,
     LOAD_USERS: null,
-    USERS_LOADED: null,
-    USER_LOGIN: null
+    USERS_LOADED: null
   }),
 
   PayloadSources: keyMirror({

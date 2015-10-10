@@ -7,7 +7,7 @@ var solutions = [];
 var allSolutions = [];
 var CHANGE_EVENT = 'change';
 
-var SolutionStore = assign({}, EventEmitter.prototype, { // assign === _.extend
+var SolutionStore = assign({}, EventEmitter.prototype, {
   emitChange: function () {
     this.emit(CHANGE_EVENT);
   },

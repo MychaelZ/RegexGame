@@ -12,7 +12,7 @@ var UserStore = require('./../stores/UserStore');
 var DetailView = React.createClass({
   mixins: [Navigation],
 
-  getInitialState: function(){
+  getInitialState: function () {
     return {
       result: '',
       solved: false,
@@ -24,27 +24,22 @@ var DetailView = React.createClass({
     };
   },
 
-  getSolutions: function(){
+  getSolutions: function () {
     this.state.solutions = SolutionStore.getSolutions();
   },
 
-  componentDidMount: function(){
+  componentDidMount: function () {
     var context = this;
     SolutionStore.addListener(this.getSolutions);
   },
 
-  setRegex: function() {
+  setRegex: function () {
     var value = React.findDOMNode(this.refs.solutionText).value;
     var solved = this.isSolved(value);
 
-    if(solved){
+    if (solved) {
 
-<<<<<<< HEAD
-      // TODO: Post new solution to server
       ViewActions.postNewSolution(this.state.question._id,this.state.user.user_id, value, this.state.user.username);
-=======
-      ViewActions.postNewSolution(this.state.question._id,this.state.user.user_id, value);
->>>>>>> remove console logs
 
       // Retrieve solutions to current question
       // ViewActions.loadSolutions(this.state.question._id);
@@ -57,7 +52,7 @@ var DetailView = React.createClass({
     });
   },
 
-  checkTestCase: function(testCase, condition) {
+  checkTestCase: function (testCase, condition) {
     try {
       var regex = new RegExp(this.state.result);
       return regex.test(testCase) === condition ? 'solved' : 'unsolved';
@@ -66,16 +61,16 @@ var DetailView = React.createClass({
     }
   },
 
-  displayTestCases: function(string, condition) {
+  displayTestCases: function (string, condition) {
     var question = this.props.questions[this.props.params.qNumber - 1];
-    return question[string].map(function(testCase) {
+    return question[string].map(function (testCase) {
       return (
         <p key={testCase} className={this.checkTestCase(testCase, condition)}>{testCase}</p>
       )
     }.bind(this));
   },
 
-  returnToMenu: function() {
+  returnToMenu: function () {
     this.setState({
       result: '',
       solved: false,
@@ -84,7 +79,7 @@ var DetailView = React.createClass({
     this.props.goToQuestionMenu();
   },
 
-  isSolved: function(regexString) {
+  isSolved: function (regexString) {
     var question = this.props.questions[this.props.params.qNumber - 1];
 
     var truthy = question['truthy']
@@ -93,11 +88,11 @@ var DetailView = React.createClass({
     try {
       var regex = new RegExp(regexString);
 
-      var solvedTruthy = truthy.reduce(function(result, current) {
+      var solvedTruthy = truthy.reduce(function (result, current) {
         return result && regex.test(current);
       }, true);
 
-      var solvedFalsy = falsy.reduce(function(result, current) {
+      var solvedFalsy = falsy.reduce(function (result, current) {
         return result && !regex.test(current);
       }, true);
 
@@ -107,7 +102,7 @@ var DetailView = React.createClass({
     }
   },
 
-  render: function() {
+  render: function () {
     var question = this.props.questions[this.props.params.qNumber - 1];
 
     if (this.props.questions.length > 0 && question === undefined) {

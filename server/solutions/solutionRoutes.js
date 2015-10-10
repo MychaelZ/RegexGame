@@ -5,7 +5,6 @@ module.exports = function(app) {
     Solution.find({questionId: qid}).sort( { votes: -1 } ).populate('questionId').populate('userId')
     .exec(function(err, data) {
       if (err) {
-        //res.send(500, err);
         res.status(500).send(err);
       } else {
         req.solutionData = data;
@@ -51,7 +50,6 @@ module.exports = function(app) {
 
   app.put('/solutions', function(req, res) {
     var id = req.body._id;
-    console.log("updating:", req.body);
     Solution.findByIdAndUpdate(id, req.body, function(err) {
       if (err) {
         return res.send(500, err);

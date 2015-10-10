@@ -8,7 +8,7 @@ var ViewActions = require('./../actions/ViewActions');
 
 var LeaderboardView = React.createClass({
 
-  getInitialState: function(){
+  getInitialState: function () {
     return {
       users: null,
       solutions: SolutionStore.getAllSolutions(),
@@ -16,20 +16,20 @@ var LeaderboardView = React.createClass({
     };
   },
 
-  getUsers: function(){
+  getUsers: function () {
     this.setState({users: UserStore.getUsers()});
     this.populateUserSolutions();
   },
 
-  populateUserSolutions: function(){
+  populateUserSolutions: function () {
     var userSolutionsArr = [];
-    for(var i = 0; i < this.state.users.length; i++){
+    for (var i = 0; i < this.state.users.length; i++) {
       var userSolutions = {};
       userSolutions['username'] = this.state.users[i].username;
       userSolutions['totalVotes'] = 0;
       userSolutions['totalAnswers'] = 0;
-      for(var j = 0; j < this.state.solutions.length; j++){
-        if(this.state.solutions[j].userId === this.state.users[i]._id ){
+      for (var j = 0; j < this.state.solutions.length; j++) {
+        if (this.state.solutions[j].userId === this.state.users[i]._id) {
           userSolutions['totalAnswers'] += 1;
           userSolutions['totalVotes'] += this.state.solutions[j].votes;
         }
@@ -39,7 +39,7 @@ var LeaderboardView = React.createClass({
     this.setState({usersolutions: userSolutionsArr});
   },
 
-  getSolutions: function(){
+  getSolutions: function () {
     this.setState({solutions: SolutionStore.getAllSolutions()});
   },
 
@@ -49,16 +49,16 @@ var LeaderboardView = React.createClass({
     this.populateUsers();
   },
 
-  populateSolutions: function (){
+  populateSolutions: function () {
     ViewActions.getAllUsers();
   },
 
-  populateUsers: function(){
+  populateUsers: function () {
     ViewActions.getAllUsers();
   },
 
-  render: function(){
-    var usersolutions = this.state.usersolutions.map(function(usersolution) {
+  render: function () {
+    var usersolutions = this.state.usersolutions.map(function (usersolution) {
       return (
         <tr>
         <td>

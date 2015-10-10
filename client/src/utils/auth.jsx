@@ -1,5 +1,5 @@
 function pretendRequest(email, pass, cb) {
-  setTimeout(function() {
+  setTimeout(function () {
     if (email === 'drew' && pass === 'password') {
       cb({
         authenticated: true,
@@ -13,7 +13,7 @@ function pretendRequest(email, pass, cb) {
 
 
 module.exports = {
-  login: function(user, pass, cb) {
+  login: function (user, pass, cb) {
     // TODO: ACTUAL AUTH REQUEST //
     cb = arguments[arguments.length - 1];
     if (localStorage.token) {
@@ -21,7 +21,7 @@ module.exports = {
       return;
     }
     var context = this;
-    pretendRequest(user, pass, function(res){
+    pretendRequest(user, pass, function (res){
       if(res.authenticated) {
         localStorage.token = res.token;
         if (cb) cb(true);

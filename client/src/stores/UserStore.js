@@ -8,7 +8,7 @@ var USERS_LOAD_EVENT = 'usersloaded';
 var userAuth = {
   username: null,
   user_id: null,
-  profileView: { //  handles the /user route
+  profileView: {
     username: null
   }
 };
@@ -45,11 +45,11 @@ var UserStore = assign({}, EventEmitter.prototype, {
     userAuth.profileView = data;
   },
 
-  setUsers: function(data){
+  setUsers: function (data) {
     users = data;
   },
 
-  getUsers: function() {
+  getUsers: function () {
     return users;
   },
   
